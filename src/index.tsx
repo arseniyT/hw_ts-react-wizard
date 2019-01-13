@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Wizard from './components/Wizard/Wizard';
+import Wizard from './components/Wizard';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Wizard />, document.getElementById('root'));

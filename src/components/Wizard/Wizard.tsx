@@ -3,8 +3,16 @@ import Step from '../Step';
 import StepNavigation from '../StepNavigation';
 import { titles } from '../../data';
 
-class Wizard extends Component {
-  state = {
+interface IState {
+  brand: string;
+  model: string;
+  transmission: string;
+  fuel: string;
+  step: number;
+}
+
+class Wizard extends Component<{}, IState> {
+  public state = {
     brand: '',
     model: '',
     transmission: '',
@@ -12,19 +20,19 @@ class Wizard extends Component {
     step: 0,
   }
 
-  chooseBrand = e => {
+  chooseBrand = (e: any) => {
     this.setState({ brand: e.target.value });
   }
 
-  chooseModel = e => {
+  chooseModel = (e: any) => {
     this.setState({ model: e.target.value });
   }
 
-  chooseTransmission = e => {
+  chooseTransmission = (e: any) => {
     this.setState({ transmission: e.target.value });
   }
 
-  chooseFuel = e => {
+  chooseFuel = (e: any) => {
     this.setState({ fuel: e.target.value });
   }
 
@@ -41,7 +49,7 @@ class Wizard extends Component {
   }
 
   render() {
-    const { step } = this.state;
+    const { step, brand, model, transmission, fuel } = this.state;
 
     return (
       <div className="wrapper">
@@ -49,8 +57,11 @@ class Wizard extends Component {
           { titles.map((item, index) => step === titles.indexOf(item) &&
               <Step
                 key = { index }
-                item = { item }
-                state = { this.state }
+                brand = { brand }
+                model = { model }
+                transmission = { transmission }
+                fuel = { fuel }
+                step = { step }
                 onChooseBrand = { this.chooseBrand }
                 onChooseModel = { this.chooseModel }
                 onChooseTransmission = { this.chooseTransmission }
@@ -59,7 +70,11 @@ class Wizard extends Component {
             )
           }
           <StepNavigation
-            state = { this.state }
+            brand = { brand }
+            model = { model }
+            transmission = { transmission }
+            fuel = { fuel }
+            step = { step }
             onPrevStepNavigationHandler = { this.prevStepNavigationHandler }
             onNextStepNavigationHandler = { this.nextStepNavigationHandler }
           />

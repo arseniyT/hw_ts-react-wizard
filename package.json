@@ -1,12 +1,19 @@
 {
-  "name": "hw_react-wizard",
+  "name": "hw_ts-react-wizard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://arseniyt.github.io/hw_react-wizard",
+  "homepage": "https://arseniyt.github.io/hw_ts-react-wizard",
   "dependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "tslint": "^5.12.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

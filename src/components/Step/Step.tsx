@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { titles, auto, transmissionTypes, fuelTypes } from '../../data';
 
-const Step = (props) => {
-  const { brand, model, transmission, fuel, step } = props.state;
+interface IStep {
+  brand: string;
+  model: string;
+  transmission: string;
+  fuel: string;
+  step: number;
+  onChooseBrand: (e: MouseEvent) => void;
+  onChooseModel: (e: MouseEvent) => void;
+  onChooseTransmission: (e: MouseEvent) => void;
+  onChooseFuel: (e: MouseEvent) => void;
+}
+
+const Step = (props: IStep) => {
+  const { 
+    brand, 
+    model, 
+    transmission, 
+    fuel, 
+    step, 
+    onChooseBrand, 
+    onChooseModel,
+    onChooseTransmission,
+    onChooseFuel
+  } = props;
 
   const showCarBrandStep = () => {
     return (
@@ -12,7 +34,7 @@ const Step = (props) => {
               key = { index }
               className = { brand === item.brand ? 'option selected' : 'option' }
               value = { item.brand }
-              onClick = { props.onChooseBrand }
+              onClick = { onChooseBrand }
             >
               { item.brand }
             </button>
@@ -32,7 +54,7 @@ const Step = (props) => {
                   key = { index }
                   className = { model === modelItem ? 'option selected' : 'option' }
                   value = { modelItem }
-                  onClick = { props.onChooseModel }
+                  onClick = { onChooseModel }
                 >
                   { modelItem }
                 </button>
@@ -54,7 +76,7 @@ const Step = (props) => {
               key = { index }
               className = { transmission === transmissionItem ? 'option selected' : 'option' }
               value = { transmissionItem }
-              onClick = { props.onChooseTransmission }
+              onClick = { onChooseTransmission }
             >
               { transmissionItem }
             </button>
@@ -72,7 +94,7 @@ const Step = (props) => {
               key = { index }
               className = { fuel === fuelItem ? 'option selected' : 'option' }
               value = { fuelItem }
-              onClick = { props.onChooseFuel }
+              onClick = { onChooseFuel }
             >
               { fuelItem }
             </button>

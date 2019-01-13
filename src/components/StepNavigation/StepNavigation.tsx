@@ -1,9 +1,27 @@
 import React from 'react';
 
-const StepNavigation = (props) => {
-  const { brand, model, transmission, fuel, step } = props.state;
+interface IStepNavigation {
+  brand: string;
+  model: string;
+  transmission: string;
+  fuel: string;
+  step: number;
+  onPrevStepNavigationHandler: () => void;
+  onNextStepNavigationHandler: () => void;
+}
 
-  const isBtnNavDisabled = isBackBtn => {
+const StepNavigation = (props: IStepNavigation) => {
+  const { 
+    brand, 
+    model, 
+    transmission, 
+    fuel, 
+    step,
+    onPrevStepNavigationHandler,
+    onNextStepNavigationHandler
+  } = props;
+
+  const isBtnNavDisabled = (isBackBtn: boolean) => {
     if (isBackBtn) {
       return step === 0;
     } 
@@ -19,14 +37,14 @@ const StepNavigation = (props) => {
     <div className="controls">
       {
         <button className="btn-nav" 
-                onClick = { props.onPrevStepNavigationHandler }
+                onClick = { onPrevStepNavigationHandler }
                 disabled = { isBtnNavDisabled(true) }>
           Back
         </button> 
       }
       {
         <button className="btn-nav" 
-                onClick = { props.onNextStepNavigationHandler } 
+                onClick = { onNextStepNavigationHandler } 
                 disabled = { isBtnNavDisabled(false) }>
           Next
         </button> 

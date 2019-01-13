@@ -1,4 +1,4 @@
-export const titles = [
+export const titles: string[] = [
   'Choose car brand',
   'Choose car model',
   'Choose transmission type',
@@ -6,7 +6,12 @@ export const titles = [
   'Your choice'
 ];
 
-export const auto = [
+export interface IAuto {
+  brand: string;
+  models: string[];
+}
+
+export const auto: IAuto[] = [
   {
     brand: 'Volkswagen',
     models: ['Polo', 'Golf', 'Scirocco', 'Beetle'],
@@ -25,14 +30,14 @@ export const auto = [
   }
 ];
 
-export const transmissionTypes = [
+export const transmissionTypes: string[] = [
   'auto',
   'manual',
   'hybrid',
   'robotic',
 ];
 
-export const fuelTypes = [
+export const fuelTypes: string[] = [
   'petrol',
   'diesel',
   'gas',
